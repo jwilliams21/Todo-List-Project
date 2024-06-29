@@ -10,15 +10,8 @@ export function AddNewToDoItem(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        if (newItem === "") return
-        if (newDescription === "") return
-        if (newCompleteDate === "") return
-        if (newUrgency === "") return
-
-        props.onSubmit(newItem)
-        props.onSubmit(newDescription)
-        props.onSubmit(newCompleteDate)
-        props.onSubmit(newUrgency)
+        
+        props.onSubmit(newItem, newDescription, newCompleteDate, newUrgency)
 
         setNewItem("")
         setNewDescription("")
