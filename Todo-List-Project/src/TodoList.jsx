@@ -7,12 +7,11 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
     {todos.length === 0 && <h4 className="notodo">No Todos!  Congrats on getting all your todos completed!</h4>}
     <div className="todo-list">
       <table>
-        <TodoTableHeader /> {/* Render TableHead outside the loop */}
         <tbody>
           {todos.map(todo => (
             <TodoItem
               key={todo.id}
-              {...todo} // Spread the todo object
+              {...todo}
               toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
             />

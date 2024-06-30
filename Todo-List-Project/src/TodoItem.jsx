@@ -7,7 +7,6 @@ export function TodoItem( { completed, id, title, description, completedate, urg
     return (
         <>
         <table>
-          <TodoTableHeader />
           <tbody>
             <tr key={id}>
               <td>
