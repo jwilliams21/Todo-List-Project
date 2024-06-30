@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { AddNewToDoItem } from './AddNewTodoItem'
 import { TodoList } from './TodoList'
 import "./styles.css"
+import { TodoTableHeader } from './TodoTableHeader'
 
 
 export default function App() {
@@ -49,7 +50,7 @@ export default function App() {
   return (
     <>
       <AddNewToDoItem onSubmit={addTodo}/>
-      <h1>Todo List</h1>
+      <h1 className="todolist">Todo List</h1> 
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </>
   )

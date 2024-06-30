@@ -8,10 +8,12 @@ export function AddNewToDoItem(props) {
     const [newCompleteDate, setNewCompleteDate] = useState("")
     const [newUrgency, setNewUrgency] = useState("")
 
+    const formattedCompleteDate = newCompleteDate ? new Date(newCompleteDate).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' }) : "";
+
     function handleSubmit(e) {
         e.preventDefault()
         
-        props.onSubmit(newItem, newDescription, newCompleteDate, newUrgency)
+        props.onSubmit(newItem, newDescription, formattedCompleteDate, newUrgency)
 
         setNewItem("")
         setNewDescription("")
@@ -22,30 +24,19 @@ export function AddNewToDoItem(props) {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input 
-                    value={newItem}
-                    onChange={e => setNewItem(e.target.value)}
-                    type="text" 
-                    id="title" />
+                <div className="label">
+                    <label htmlFor="completedate" className="label">Complete By</label>
                 </div>
-                <div>
-                    <label htmlFor="description">Description</label>
+                <div>    
                     <input 
-                    value={newDescription}
-                    onChange={e => setNewDescription(e.target.value)}
-                    type="text" id="description" />
-                </div>
-                <div>
-                    <label htmlFor="completedate">Complete By</label>
-                    <input 
-                    value={newCompleteDate}
+                    value={formattedCompleteDate}
                     onChange={e => setNewCompleteDate(e.target.value)}
                     type="date" id="completedate" />
                 </div>
-                <div>
-                    <label htmlFor="urgency">Urgency</label>
+                <div className="label">
+                    <label htmlFor="urgency" className="label">Urgency</label>
+                </div>
+                <div>    
                     <select 
                     value={newUrgency}
                     onChange={e => setNewUrgency(e.target.value)}
@@ -57,7 +48,26 @@ export function AddNewToDoItem(props) {
                         <option value="Not Urgent and Not Important">Not Urgent and Not Important</option>
                     </select>
                 </div>
-                <button>Add</button>
+                <div className="label">
+                    <label htmlFor="title" className="label">Title</label>
+                </div>    
+                <div>
+                    <input
+                    value={newItem}
+                    onChange={e => setNewItem(e.target.value)}
+                    type="text" 
+                    id="title" />
+                </div>
+                <div className="label">
+                    <label htmlFor="description">Description</label>
+                </div>
+                <div>    
+                    <textarea 
+                    value={newDescription}
+                    onChange={e => setNewDescription(e.target.value)}
+                    type="text" id="description" />
+                </div>
+                <button className="addbutton">Add</button>
             </form>
         </>
     )
