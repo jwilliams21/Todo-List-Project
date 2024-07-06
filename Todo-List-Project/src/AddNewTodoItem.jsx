@@ -1,37 +1,36 @@
-import React from 'react'
-import "./styles.css"
-import { useState } from 'react'
+import React from 'react';
+import "./styles.css";
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export function AddNewToDoItem(props) {
-    const [newItem, setNewItem] = useState("")
-    const [newDescription, setNewDescription] = useState("")
-    const [newCompleteDate, setNewCompleteDate] = useState("")
-    const [newUrgency, setNewUrgency] = useState("")
-
-    const formattedCompleteDate = newCompleteDate ? new Date(newCompleteDate).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' }) : "";
+    const [newItem, setNewItem] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+    const [newUrgency, setNewUrgency] = useState("");
+    const [selectedDate, setSelectedDate] = useState(null);
 
     function handleSubmit(e) {
         e.preventDefault()
         
-        props.onSubmit(newItem, newDescription, formattedCompleteDate, newUrgency)
+        props.onSubmit(newItem, newDescription, selectedDate, newUrgency)
 
         setNewItem("")
         setNewDescription("")
-        setNewCompleteDate("")
         setNewUrgency("")
+        setSelectedDate("")
     }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <div className="label">
-                    <label htmlFor="completedate" className="label">Complete By</label>
+                    <label className="label">Complete By</label>
                 </div>
-                <div>    
+                <div>
                     <input 
-                    value={formattedCompleteDate}
-                    onChange={e => setNewCompleteDate(e.target.value)}
-                    type="date" id="completedate" />
+                    type="date"
+                    value={selectedDate} />
                 </div>
                 <div className="label">
                     <label htmlFor="urgency" className="label">Urgency</label>

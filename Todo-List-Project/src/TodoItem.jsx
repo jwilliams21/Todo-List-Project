@@ -1,30 +1,35 @@
 import React, { useState } from 'react'
-import { TodoTableHeader } from './TodoTableHeader'
 
-export function TodoItem( { completed, id, title, description, completedate, urgency, toggleTodo, deleteTodo } ) {
+export function TodoItem( { completed, id, title, description, selectedDate, urgency, toggleTodo, deleteTodo } ) {
     const [currentDate, setCurrentDate] = useState(new Date())
 
     return (
-        <>
-        <table>
-          <tbody>
-            <tr key={id}>
-              <td>
-                <button onClick={() => deleteTodo(id)} className="deletebutton">Delete</button>
-              </td>
-              <td className="checkbox">
+      <div key={id} className="table-body">
+        <div key={id} className="table-row">
+        <div className="cell">
                 <label>
                   <input type="checkbox" checked={completed} onChange={e => toggleTodo(id, e.target.checked)} />
                 </label>
-              </td>
-              <td>{currentDate.toLocaleDateString()}</td>
-              <td>{completedate || ''}</td>
-              <td>{title || ''}</td>
-              <td>{description || ''}</td>
-              <td>{urgency || ''}</td>
-            </tr>
-          </tbody>
-        </table>
-      </>
+        </div>
+        <div className="cell">
+          {currentDate.toLocaleDateString()}
+        </div>
+        <div className="cell">
+          {selectedDate || ''}
+        </div>
+        <div className="cell">
+          {title || ''}
+        </div>
+        <div className="cell">
+          {description || ''}
+        </div>
+        <div className="cell">
+          {urgency || ''}
+        </div>
+        <div className="cell">
+          <button onClick={() => deleteTodo(id)} className="deletebutton">Delete</button>
+        </div>
+        </div>
+      </div>
     )
 }

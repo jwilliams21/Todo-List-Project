@@ -1,10 +1,10 @@
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { AddNewToDoItem } from './AddNewTodoItem'
-import { TodoList } from './TodoList'
-import "./styles.css"
-import { TodoTableHeader } from './TodoTableHeader'
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { AddNewToDoItem } from './AddNewTodoItem';
+import { TodoList } from './TodoList';
+import { TodoListContainer } from './TodoListContainer';
+import "./styles.css";
 
 
 export default function App() {
@@ -19,11 +19,11 @@ export default function App() {
     localStorage.setItem("ITEMS", JSON.stringify(todos))
   }, [todos])
 
-  function addTodo(title, description, completedate, urgency) {
+  function addTodo(title, description, selectedDate, urgency) {
     setTodos(currentTodos => {
       return [
         ...currentTodos,
-        {id: crypto.randomUUID(), title, description, completedate, urgency, completed: false}
+        {id: crypto.randomUUID(), title, description, selectedDate, urgency, completed: false}
       ]
     })
   }
@@ -48,11 +48,11 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="app-container">
       <AddNewToDoItem onSubmit={addTodo}/>
       <h1 className="todolist">Todo List</h1> 
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
-    </>
+    </div>
   )
 }
 

@@ -1,21 +1,14 @@
 import React from 'react'
 
-export function TodoTableHeader({todos}) {
+export function TodoTableHeader() {
 return (
-    <>
-        <table>
-        <thead>
-          <tr>
-              <th></th>
-              <th>Completed</th>
-              <th>Date Added</th>
-              <th>Complete Date</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Urgency</th>
-          </tr>
-        </thead>
-      </table> 
-    </>
+  <div className="table-header">
+    <div className="header-cell">Completed</div>
+    <div className="header-cell">Date Added</div>
+    <div className="header-cell">Complete By</div>
+    <div className="header-cell">Title</div>
+    <div className="header-cell">Description</div>
+    <div className="header-cell">Urgency</div>
+  </div>
     )
 }
