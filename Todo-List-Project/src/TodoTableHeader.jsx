@@ -9,6 +9,7 @@ return (
     <div className="header-cell">Title</div>
     <div className="header-cell">Description</div>
     <div className="header-cell">Urgency</div>
+    <div className="header-cell">Delete</div>
   </div>
     )
 }

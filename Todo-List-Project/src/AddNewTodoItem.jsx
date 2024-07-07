@@ -1,14 +1,12 @@
 import React from 'react';
 import "./styles.css";
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 export function AddNewToDoItem(props) {
     const [newItem, setNewItem] = useState("");
     const [newDescription, setNewDescription] = useState("");
     const [newUrgency, setNewUrgency] = useState("");
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedDate, setSelectedDate] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,7 +28,8 @@ export function AddNewToDoItem(props) {
                 <div>
                     <input 
                     type="date"
-                    value={selectedDate} />
+                    value={selectedDate} 
+                    onChange={e => setSelectedDate(e.target.value)}/>
                 </div>
                 <div className="label">
                     <label htmlFor="urgency" className="label">Urgency</label>
@@ -41,10 +40,9 @@ export function AddNewToDoItem(props) {
                     onChange={e => setNewUrgency(e.target.value)}
                     id="urgency">
                         <option value="null">Choose One...</option>
-                        <option value="Urgent and Important">Urgent and Important</option>
-                        <option value="Urgent and Not Important">Urgent and Not Important</option>
-                        <option value="Important but Not Urgent">Important but Not Urgent</option>
-                        <option value="Not Urgent and Not Important">Not Urgent and Not Important</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
                     </select>
                 </div>
                 <div className="label">

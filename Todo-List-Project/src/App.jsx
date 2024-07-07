@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { AddNewToDoItem } from './AddNewTodoItem';
 import { TodoList } from './TodoList';
-import { TodoListContainer } from './TodoListContainer';
 import "./styles.css";
 
 
@@ -48,11 +47,13 @@ export default function App() {
   }
 
   return (
-    <div className="app-container">
-      <AddNewToDoItem onSubmit={addTodo}/>
-      <h1 className="todolist">Todo List</h1> 
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
-    </div>
+    <body>
+      <div className="app-container">
+        <AddNewToDoItem onSubmit={addTodo}/>
+        <h1 className="todolist">Todo List</h1> 
+        <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+      </div>
+    </body>
   )
 }
 

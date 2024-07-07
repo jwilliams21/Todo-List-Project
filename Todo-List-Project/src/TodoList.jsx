@@ -7,7 +7,7 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
   const [hasRenderedHeader, setHasRenderedHeader] = useState(false);
 
   return (
-    <div>
+    <div className="table-container">
       {todos.length === 0 && <h4 className="notodo">No Todos!  Congrats on getting all your todos completed!</h4>}
       {todos.length > 0 && !hasRenderedHeader && (
         <TodoTableHeader 
