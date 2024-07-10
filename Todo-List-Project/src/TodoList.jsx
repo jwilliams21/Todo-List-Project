@@ -8,7 +8,7 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
 
   return (
     <div className="table-container">
-      {todos.length === 0 && <h4 className="notodo">No Todos!  Congrats on getting all your todos completed!</h4>}
+      {todos.length === 0 && <h4 className="notodo">No To-dos!  Congrats on getting all your to-dos completed!</h4>}
       {todos.length > 0 && !hasRenderedHeader && (
         <TodoTableHeader 
         onHeaderRender={() => setHasRenderedHeader(true)} />
