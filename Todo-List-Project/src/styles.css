@@ -91,7 +91,7 @@ textarea {
   }
 
   .table-header {
-    border: solid; 
+    border: 6px solid #00f9bb; 
     border-radius: 30px;
   }
 
