@@ -1,19 +1,29 @@
-import { TodoItem } from './TodoItem'
+import { useState } from 'react';
+import { TodoTableHeader } from './TodoTableHeader';
+import { TodoItem } from './TodoItem';
+
 
 export function TodoList({ todos, toggleTodo, deleteTodo }) {
-    return (
-        <ul>
-            {todos.length === 0 && "No Todos!  Great work on completing all your tasks!"}
-            {todos.map(todo => {
-                return (
-                    <TodoItem 
-                        {...todo}
-                        key={todo.id}
-                        toggleTodo={toggleTodo}
-                        deleteTodo={deleteTodo}
-                    />    
-                )
-            })}
-        </ul>
-    )
+  const [hasRenderedHeader, setHasRenderedHeader] = useState(false);
+
+  return (
+    <div className="table-container">
+      {todos.length === 0 && <h4 className="notodo">No Todos!  Congrats on getting all your todos completed!</h4>}
+      {todos.length > 0 && !hasRenderedHeader && (
+        <TodoTableHeader 
+        onHeaderRender={() => setHasRenderedHeader(true)} />
+      )}
+
+      <br/>
+      <br/>
+
+      {todos.map((todo) => (
+        <TodoItem 
+        key={todo.id} 
+        {...todo} 
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}/>
+      ))}
+    </div>
+  );
 }

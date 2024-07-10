@@ -1,70 +1,70 @@
-import React from 'react'
-import "./styles.css"
-import { useState } from 'react'
+import React from 'react';
+import "./styles.css";
+import { useState } from 'react';
 
 export function AddNewToDoItem(props) {
-    const [newItem, setNewItem] = useState("")
-    const [newDescription, setNewDescription] = useState("")
-    const [newCompleteDate, setNewCompleteDate] = useState("")
-    const [newUrgency, setNewUrgency] = useState("")
+    const [newItem, setNewItem] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+    const [newUrgency, setNewUrgency] = useState("");
+    const [selectedDate, setSelectedDate] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault()
-        if (newItem === "") return
-        if (newDescription === "") return
-        if (newCompleteDate === "") return
-        if (newUrgency === "") return
-
-        props.onSubmit(newItem)
-        props.onSubmit(newDescription)
-        props.onSubmit(newCompleteDate)
-        props.onSubmit(newUrgency)
+        
+        props.onSubmit(newItem, newDescription, selectedDate, newUrgency)
 
         setNewItem("")
         setNewDescription("")
-        setNewCompleteDate("")
         setNewUrgency("")
+        setSelectedDate("")
     }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input 
-                    value={newItem}
-                    onChange={e => setNewItem(e.target.value)}
-                    type="text" 
-                    id="title" />
+                <div className="label">
+                    <label className="label">Complete By</label>
                 </div>
                 <div>
-                    <label htmlFor="description">Description</label>
                     <input 
-                    value={newDescription}
-                    onChange={e => setNewDescription(e.target.value)}
-                    type="text" id="description" />
+                    type="date"
+                    value={selectedDate} 
+                    onChange={e => setSelectedDate(e.target.value)}/>
                 </div>
-                <div>
-                    <label htmlFor="completedate">Complete By</label>
-                    <input 
-                    value={newCompleteDate}
-                    onChange={e => setNewCompleteDate(e.target.value)}
-                    type="date" id="completedate" />
+                <div className="label">
+                    <label htmlFor="urgency" className="label">Urgency</label>
                 </div>
-                <div>
-                    <label htmlFor="urgency">Urgency</label>
+                <div>    
                     <select 
                     value={newUrgency}
                     onChange={e => setNewUrgency(e.target.value)}
                     id="urgency">
                         <option value="null">Choose One...</option>
-                        <option value="Urgent and Important">Urgent and Important</option>
-                        <option value="Urgent and Not Important">Urgent and Not Important</option>
-                        <option value="Important but Not Urgent">Important but Not Urgent</option>
-                        <option value="Not Urgent and Not Important">Not Urgent and Not Important</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
                     </select>
                 </div>
-                <button>Add</button>
+                <div className="label">
+                    <label htmlFor="title" className="label">Title</label>
+                </div>    
+                <div>
+                    <input
+                    value={newItem}
+                    onChange={e => setNewItem(e.target.value)}
+                    type="text" 
+                    id="title" />
+                </div>
+                <div className="label">
+                    <label htmlFor="description">Description</label>
+                </div>
+                <div>    
+                    <textarea 
+                    value={newDescription}
+                    onChange={e => setNewDescription(e.target.value)}
+                    type="text" id="description" />
+                </div>
+                <button className="addbutton">Add</button>
             </form>
         </>
     )
