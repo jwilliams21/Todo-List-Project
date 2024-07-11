@@ -96,8 +96,12 @@ textarea {
     font-size: 25px;
   }
 
-  .table-row:nth-of-type(odd) {
+  .table-row:nth-of-type(even) {
     background-color: #154055;
+    margin-top: 7px;
+  }
+
+  .table-row:nth-of-type(odd) {
     margin-top: 7px;
   }
   
