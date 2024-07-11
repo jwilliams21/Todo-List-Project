@@ -48,11 +48,9 @@ export default function App() {
 
   return (
     <body>
-      <div className="app-container">
         <AddNewToDoItem onSubmit={addTodo}/>
-        <h1 className="todolist">Todo List</h1> 
+        <h1 className="todolist">To-do List</h1> 
         <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
-      </div>
     </body>
   )
 }

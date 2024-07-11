@@ -1,14 +1,10 @@
 body {
-    background-color: #0e2a39;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.app-container {
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-left: 30px;
-    background-color: #0e2a39;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #0e2a39;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .label {
@@ -39,7 +35,7 @@ textarea {
     background-color:  #0e2a39;
     width: 45%;
     height: 150px;
-    padding: 10px;
+    padding: 6px;
     box-sizing: border-box;
     border: 2px solid #00f9bb;
     border-radius: 4px;
@@ -59,7 +55,7 @@ textarea {
 .addbutton {
     background-color: #00f9bb;
     color: #0e2a39;
-    border: 2px solid #00f9bb;
+    border: 1px solid #0e2a39;
     border-radius: 100px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -79,8 +75,7 @@ textarea {
     flex-direction: column; 
   }
   
-  .table-header,
-  .table-body {
+  .table-header {
     display: flex; 
   }
   
@@ -101,8 +96,9 @@ textarea {
     font-size: 25px;
   }
 
-  .table-row {
-    margin-top: 15px;
+  .table-row:nth-of-type(odd) {
+    background-color: #154055;
+    margin-top: 7px;
   }
   
   .header-cell,
@@ -114,6 +110,10 @@ textarea {
   .cell {
     color: #00f9bb;
   }
+
+input[type="checkbox"] {
+    accent-color: #00f9bb;
+  }  
 
 .deletebutton {
     background-color: #ff0000;

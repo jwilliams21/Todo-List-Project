@@ -6,7 +6,6 @@ export function TodoItem( { completed, id, title, description, selectedDate, urg
     const formattedDate = moment(currentDate).format('YYYY-MM-DD');
 
     return (
-      <div key={id} className="table-body">
         <div key={id} className="table-row">
           <div className="cell">
                   <label>
@@ -31,7 +30,6 @@ export function TodoItem( { completed, id, title, description, selectedDate, urg
           <div className="cell">
             <button onClick={() => deleteTodo(id)} className="deletebutton">Delete</button>
           </div>
-        </div>
       </div>
     )
 }
